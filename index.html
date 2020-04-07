@@ -7,8 +7,22 @@
 body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
 img {align: middle;}
-audio {align: middle; padding:10%;}
-
+/*audio {align: middle; padding:10%;}*/
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
 
 /* Slideshow container */
 .slideshow-container {
