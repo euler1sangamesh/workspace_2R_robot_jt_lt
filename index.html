@@ -1,54 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<script>
-window.onload = function(){
-
-   var myAudio = document.getElementById('my-audio');
-   var play = document.getElementById('play');
-   var pause = document.getElementById('pause');
-   var loading = document.getElementById('loading');
-   var bar = document.getElementById('bar');
-
-   function displayControls() {
-      loading.style.display = "none";
-      play.style.display = "block";
-   }
-
-   // check that the media is ready before displaying the controls
-   if (myAudio.paused) {
-      displayControls();
-   } else {
-      // not ready yet - wait for canplay event
-      myAudio.addEventListener('canplay', function() {
-         displayControls();
-      });
-   }
-    
-   play.addEventListener('click', function() {
-      myAudio.play();
-      play.style.display = "none";
-      pause.style.display = "block";
-   });
-    
-   pause.addEventListener('click', function() {
-      myAudio.pause();
-      pause.style.display = "none";
-      play.style.display = "block";
-   });
-    
-   // display progress
-    
-   myAudio.addEventListener('timeupdate', function() {
-      //sets the percentage
-      bar.style.width = parseInt(((myAudio.currentTime / myAudio.duration) * 100), 10) + "%";
-   });
-
-}
-
-</script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {box-sizing: border-box}
@@ -57,22 +9,6 @@ body {font-family: Verdana, sans-serif; margin:0}
 img {align: middle;}
 audio {align: middle; padding:10%;}
 
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
-}
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-[hidden],
-template {
-  display: none;
-}
 
 /* Slideshow container */
 .slideshow-container {
@@ -165,49 +101,9 @@ template {
   to {opacity: 1}
 }
 
-.rotate90 {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-
-.rotate990 {
-    -webkit-transform: rotate(270);
-    -moz-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-    transform: rotate(270deg);
-}
-.rotate180 {
-    -webkit-transform: rotate(180);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-
-
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
-}
-
-#controls {
-   width: 80px;
-   float: left;
-}
-    
-#progress {
-   margin-left: 80px;
-   border: 1px solid black;
-}
-
-#bar {
-   height: 20px;
-   background-color: green;
-   width: 0;
 }
 </style>
 </head>
@@ -224,23 +120,6 @@ template {
   <div class="text"></div>
 </div>
 
-<audio id="my-audio">
-  <source src="http://jPlayer.org/audio/mp3/Miaow-07-Bubble.mp3" type="audio/mpeg">
-  <source src="http://jPlayer.org/audio/ogg/Miaow-07-Bubble.ogg" type="audio/ogg">
-  <!-- place fallback here as <audio> supporting browsers will ignore it -->
-  <a href="audiofile.mp3">audiofile.mp3</a>
-</audio>
-
-<div id="controls">
-  <span id="loading">loading</span>
-  <button id="play" style="display:none">play</button>
-  <button id="pause" style="display:none" >pause</button>
-</div>
-<div id="progress">
-  <div id="bar"></div>
-</div>
-
-
 <div class="mySlides fade" align="middle" >
   <div class="numbertext">2</div>
   <img src="problem_statement.png" style="width:70%">
@@ -249,7 +128,7 @@ template {
 
 <div class="mySlides fade" align="middle"   >
   <div class="numbertext">3</div>
-  <audio controls  src="Voice_001.m4a"  width="100%"/>
+  <audio controls src=" https://github.com/euler1sangamesh/workspace_2R_robot_jt_lt/blob/master/Voice_001.m4a" style="width:50%" >
   <div class="text"> </div>
 </div>
 
@@ -262,7 +141,7 @@ template {
 
 <div class="mySlides fade" align="middle"   >
   <div class="numbertext">5</div>
-  <audio controls src="Voice 008.m4a" style="width:50%" >
+  <audio controls src="Voice 003.m4a" style="width:50%" >
   <div class="text"> </div>
 </div>
 
@@ -272,63 +151,6 @@ template {
   <img src="theta1_0.gif" style="width:70%">
   <div class="text"></div>
 </div>
-
-
-<div class="mySlides fade" align="middle"   >
-  <div class="numbertext">7</div>
-  <audio controls src="Voice 009.m4a" style="width:50%" >
-  <div class="text"> </div>
-</div>
-
-
-<div class="mySlides fade" align="middle" >
-  <div class="numbertext">8</div>
-  <img src="theta1_60.gif" style="width:70%">
-  <div class="text"></div>
-</div>
-
-<div class="mySlides fade" align="middle"   >
-  <div class="numbertext">9</div>
-  <audio controls src="Voice 010.m4a" style="width:50%" >
-  <div class="text"> </div>
-</div>
-
-
-<div class="mySlides fade" align="middle" >
-  <div class="numbertext">10</div>
-  <img src="con_theta1_1_arc.gif" style="width:70%">
-  <div class="text"></div>
-</div>
-
-<div class="mySlides fade" align="middle"   >
-  <div class="numbertext">11</div>
-  <audio controls src="Voice 011.m4a" style="width:50%" >
-  <div class="text"> </div>
-</div>
-
-<div class="mySlides fade" align="middle" >
-  <div class="numbertext">12</div>
-  <img src="con_theta1_arc_sweep.gif" style="width:70%">
-  <div class="text"></div>
-</div>
-
-<div class="mySlides fade" align="middle"   >
-  <div class="numbertext">13</div>
-  <audio controls src="Voice 012.m4a" style="width:50%" >
-  <div class="text"> </div>
-</div>
-
-<div class="mySlides fade" align="middle" >
-  <div class="numbertext">12</div>
-  <img src="IMG_20200326_040646_283.jpg" style="width:40%" class="rotate990">
-  <div class="text"></div>
-</div>
-
-
-
-
-
-
 
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
